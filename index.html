@@ -44,34 +44,10 @@
 
 
     <section class="flex justify-center mt-[35px] ">
-        <div class="grid sm:flex justify-center gap-[50px] ">
 
-            <div class="w-[240px] h-[250px] ">
-                <div class="flex justify-between">
-                    <img class="w-[60px] h-[60px] mb-[20px]" src="assets/icon2.png" alt="">
-                </div>
-                <h1 class="font-semibold text-left text-[22px] text-[#0C145A] mb-[6px] mt-[9px]">1. Start</h1>
+        <div class="grid sm:flex justify-center gap-[50px] " id="NewTextimg">
 
-                <p class="font-normal text-left text-[18] text-[#0C145A]">Pilih salah satu game <br> yang ingin kamu top up</p>
-            </div class="flex justify-center">
 
-            <div class="w-[240px] h-[250px]">
-                <div class="flex justify-between">
-                    <img class="w-[60px] h-[60px] mb-[20px]" src="assets/icon1.png" alt="">
-                </div>
-                <h1 class="font-semibold text-left text-[22px] text-[#0C145A] mb-[6px] mt-[9px]">2. Fill Up</h1>
-
-                <p class="font-normal text-left text-[18] text-[#0C145A]">Top up sesuai dengan <br>nominal yang sudah tersedia</p>
-            </div>
-
-            <div class="w-[240px] h-[250px] ">
-                <div class="flex justify-between">
-                    <img class="w-[60px] h-[60px] mb-[20px]" src="assets/icon.png" alt="">
-                </div>
-                <h1 class="font-semibold text-left text-[22px] text-[#0C145A] mb-[6px] mt-[9px]">3. Be a winner</h1>
-
-                <p class="font-normal text-left text-[18] text-[#0C145A]">Siap digunakan untuk<br> improve permainan kamu</p>
-            </div>
         </div>
     </section>
 
@@ -80,57 +56,14 @@
                 Our Featured <br> Games This Year
             </h1>
 
-        <div class="grid sm:flex justify-center items-center gap-[44px]">
+        <div class="grid sm:flex justify-center items-center gap-[44px]" id="Icon">
 
-            <div class="">
-                <img class=" w-[200px] h-auto" src="assets/item.png" alt="">
-            </div>
-
-            <div class="">
-                <img class=" w-[200px] h-auto" src="assets/item1.png" alt="">
-            </div>
-
-            <div class="">
-                <img class=" w-[200px] h-auto" src="assets/item2.png" alt="">
-            </div>
-
-            <div class="">
-                <img class=" w-[200px] h-auto" src="assets/item3.png" alt="">
-            </div>
-
-            <div class="">
-                <img class=" w-[200px] h-auto" src="assets/item4.png" alt="">
-            </div>
         </div>
     </section>
 
     <section class="flex justify-center mt-[40px]">
-        <div class="grid sm:flex justify-center w-full max-w-[1000px] gap-[10px] sm:gap-[80px]">
-            <div class="text-left">
-                <h1 class="text-[32px] text-[#0C145A] font-bold mb-[1px]">290M+</h1>
-                <p class="text-[18px] text-[#7E8CAC] font-normal">Players Top Up</p>
-            </div>
-
-            <div class="hidden sm:block w-[1px] h-[94px] bg-[#E7EAF5]"></div>
-
-            <div class="text-left">
-                <h1 class="text-[32px] text-[#0C145A] font-bold mb-[1px]">12.500</h1>
-                <p class="text-[18px] text-[#7E8CAC] font-normal">Games Available</p>
-            </div>
-
-            <div class="hidden sm:block w-[1px] h-[94px] bg-[#E7EAF5]"></div>
-
-            <div class="text-left">
-                <h1 class="text-[32px] text-[#0C145A] font-bold mb-[1px]">99,9%</h1>
-                <p class="text-[18px] text-[#7E8CAC] font-normal">Happy Players</p>
-            </div>
-
-            <div class="hidden sm:block w-[1px] h-[94px] bg-[#E7EAF5]"></div>
-
-            <div class="">
-                <h1 class="text-[32px] text-[#0C145A] font-bold mb-[1px]">4.7</h1>
-                <p class="text-[18px] text-[#7E8CAC] font-normal">Rating Worldwide</p>
-            </div>
+        <div class="grid sm:flex justify-center w-full max-w-[1000px] gap-[10px] sm:gap-[80px]" id="TextAvv">
+            
         </div>
     </section>
 
@@ -191,4 +124,47 @@
     </section>
 
   </body>
+
+  <script type="module">
+        import { textImg,  ImgGame, TextIn} from '../data/index.js'
+
+        console.log(textImg)
+        console.log(ImgGame)
+        console.log(TextIn)
+
+        const Imgtext = document.getElementById('NewTextimg');
+        Imgtext.innerHTML = textImg.map(event =>{
+            return ` 
+            <div class="w-[240px] h-[250px]" >
+                <div class="flex justify-between">
+                    <img class="w-[60px] h-[60px] mb-[20px]" src=${event.img} alt="">
+                </div>
+                <h1 class="font-semibold text-left text-[22px] text-[#0C145A] mb-[6px] mt-[9px]">${event.title}</h1>
+
+                <p class="font-normal text-left text-[18] text-[#0C145A]">${event.paragraf}</p>
+            </div> `
+        }).join('');
+
+        const Game = document.getElementById('Icon');
+        Game.innerHTML = ImgGame.map(games =>{
+            return `
+            <div class="">
+                <img class=" w-[200px] h-auto" src=${games.img} alt="">
+            </div>`
+        }).join('');
+
+        const  Avv = document.getElementById('TextAvv');
+        Avv.innerHTML = TextIn.map(text => {
+            return `
+            <div class="text-left">
+                <h1 class="text-[32px] text-[#0C145A] font-bold mb-[1px]">${text.h1}</h1>
+                <p class="text-[18px] text-[#7E8CAC] font-normal">${text.p}</p>
+            </div>
+            <div class="hidden sm:block w-[1px] h-[94px] bg-[#E7EAF5]"></div>
+
+            `
+        }).join('');
+
+    
+    </script>
 </html>
